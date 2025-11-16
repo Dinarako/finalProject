@@ -1,15 +1,18 @@
 import "./App.css";
-import Header from "./components/Header";
-import Main from "./components/Main";
-import Footer from "./components/Footer";
+import Nav from "./layout/Nav";
+import Main from "./layout/Main";
+import Footer from "./layout/Footer";
+
 
 function App() {
   return (
-    <div className="site-wrapper">
-      <Header />
-      <Main />
-      <Footer />
-    </div>
+   
+      <div className="site-wrapper">
+        <Nav />
+        <Main />      
+        <Footer />
+      </div>
+    
   );
 }
 

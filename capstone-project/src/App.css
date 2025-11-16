@@ -1,15 +1,29 @@
 /* Make sure the page fills the viewport */
-html,
-body,
+html {
+  scroll-behavior: smooth; /* smooth scroll when clicking nav links */
+}
+
 #root {
   height: 100%;
 }
 
 body {
   margin: 0;
+  padding: 0;
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+}
+
+.container {
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.section {
+  width: 100vw;        /* full viewport width */
+  min-height: 100vh;   /* full viewport height (if you want one-screen sections) */
+  display: block;
 }
 
 /* The main container that holds Header, Main, Footer */
@@ -17,6 +31,7 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100vh; /* ensures full viewport height */
+  
 }
 
 /* The main section expands to fill the space between header & footer */
@@ -28,3 +43,8 @@ body {
 .footer {
   margin-top: auto; /* ensures it sticks to bottom */
 }
+
+
+
+
+
