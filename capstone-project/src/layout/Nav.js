@@ -10,67 +10,54 @@ function Nav() {
 
   return (
     <header className="site-header" role="banner">
-      <div className="header-inner container">
+     <div className="header-inner container">
 
-        {/* Logo */}
-        <Link to="/" className="brand" aria-label="Little Lemon — Home" onClick={handleNavClick}>
-          <img
-            src="/Logo.svg"
-            alt="Little Lemon logo"
-            className="brand__logo"
-            width="160"
-            height="auto"
-          />
-          <span className="sr-only">Little Lemon</span>
-        </Link>
+  {/* Navigation FIRST (left side) */}
+  <nav className="primary-nav" aria-label="Primary">
 
-        {/* Navigation */}
-        <nav className="primary-nav" aria-label="Primary">
+    {/* Mobile toggle button */}
+    <button
+      className="nav-toggle"
+      aria-expanded={open}
+      aria-controls="primary-menu"
+      onClick={() => setOpen((v) => !v)}
+    >
+      <span className="sr-only">Toggle navigation</span>
+      <span aria-hidden="true" className="hamburger"></span>
+    </button>
 
-          {/* Mobile toggle button */}
-          <button
-            className="nav-toggle"
-            aria-expanded={open}
-            aria-controls="primary-menu"
-            onClick={() => setOpen((v) => !v)}
-          >
-            <span className="sr-only">Toggle navigation</span>
-            <span aria-hidden="true" className="hamburger"></span>
-          </button>
+    {/* Nav list */}
+    <ul
+      id="primary-menu"
+      className={`nav-list ${open ? "nav-list--open" : ""}`}
+    >
+      <li>
+        <Link to="/" onClick={handleNavClick}>Home</Link>
+      </li>
+      <li><a href="#about" onClick={handleNavClick}>About</a></li>
+      <li><a href="#specials" onClick={handleNavClick}>Specials</a></li>
+      <li><a href="#testimonials" onClick={handleNavClick}>Testimonials</a></li>
+      <li>
+        <Link to="/reservation" onClick={handleNavClick}>Reservation</Link>
+      </li>
+    </ul>
 
-          {/* Nav list */}
-          <ul
-            id="primary-menu"
-            className={`nav-list ${open ? "nav-list--open" : ""}`}
-          >
-            {/* HOME -> route "/" which renders Main -> Home.js */}
-            <li>
-              <Link to="/" onClick={handleNavClick}>
-                Home
-              </Link>
-            </li>
+  </nav>
 
-            {/* These still scroll to sections on the main page (if you have ids set) */}
-            <li><a href="#about" onClick={handleNavClick}>About</a></li>
-            <li><a href="#specials" onClick={handleNavClick}>Specials</a></li>
-            <li><a href="#testimonials" onClick={handleNavClick}>Testimonials</a></li>
+  {/* Logo SECOND (right side now) */}
+  <Link to="/" className="brand" aria-label="Little Lemon — Home" onClick={handleNavClick}>
+    <img
+      src="/Logo.svg"
+      alt="Little Lemon logo"
+      className="brand__logo"
+      width="160"
+      height="auto"
+    />
+    <span className="sr-only">Little Lemon</span>
+  </Link>
 
-            {/* Example route links if you add those pages later */}
-            <li>
-              <Link to="/order" onClick={handleNavClick}>
-                Order Online
-              </Link>
-            </li>
-            <li>
-              <Link to="/contact" onClick={handleNavClick}>
-                Login
-              </Link>
-            </li>
-          </ul>
+</div>
 
-        </nav>
-
-      </div>
     </header>
   );
 }

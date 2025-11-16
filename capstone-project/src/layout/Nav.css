@@ -175,3 +175,42 @@
   }
 }
 
+/* ====== NAVBAR 30% LARGER ====== */
+
+/* increase total nav width */
+:root {
+  --container-max: 1560px; /* 1200px × 1.3 = 1560px */
+}
+
+/* increase logo size */
+.brand__logo {
+  width: clamp(156px, 20vw, 234px);  /* 30% bigger */
+}
+
+/* increase header height/padding */
+.header-inner {
+  padding-block: 16px;  /* was 12px */
+  transform: scale(1.0); /* keeps layout centered */
+}
+
+/* scale up nav link text */
+.nav-list a {
+  font-size: 1.3rem; /* ← added (30% larger) */
+  font-weight: 500;
+}
+
+/* increase spacing between nav items */
+.nav-list {
+  gap: 26px; /* 20px × 1.3 = 26px */
+}
+
+/* hamburger icon bigger on mobile */
+@media (max-width: 767px) {
+  .nav-toggle {
+    padding: 12px 14px;
+  }
+
+  .hamburger {
+    width: 28px; /* originally 22px */
+  }
+}

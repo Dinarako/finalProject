@@ -1,0 +1,80 @@
+.testimonials-section {
+  padding: 4rem 1.5rem;
+  background-color: #ffffff;
+  width: 100vw;          /* full width */
+  position: relative;
+  left: 50%;
+  margin-left: -50vw;
+  margin-bottom: 4rem;
+}
+
+.testimonials-inner {
+  max-width: 1400px;
+  margin: 0 auto;
+  text-align: center;
+  padding-inline: 1rem;
+}
+
+.testimonials-inner h2 {
+  font-size: 2rem;
+  margin-bottom: 2.5rem;
+}
+
+/* 4 cards in second row, centered */
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 2.5rem;
+  justify-items: center; /* center cards horizontally in each cell */
+}
+
+/* Card styling */
+.testimonial-card {
+  background-color: #edefee;
+  border-radius: 18px;          /* smooth corners */
+  padding: 1.6rem 1.4rem;
+  max-width: 260px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;       /* stack elements as column */
+  align-items: center;
+  gap: 0.75rem;
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.08);
+}
+
+.testimonial-name {
+  margin: 0;
+  font-size: 1.05rem;
+  font-weight: 600;
+}
+
+/* Stars row */
+.testimonial-stars {
+  display: flex;
+  gap: 0.2rem;
+  font-size: 1.1rem;
+  color: #f4b400;               /* yellow stars */
+}
+
+.testimonial-card p {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+/* Responsive: fewer columns on smaller screens */
+@media (max-width: 1024px) {
+  .testimonials-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 640px) {
+  .testimonials-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .testimonial-card {
+    max-width: 320px;
+  }
+}

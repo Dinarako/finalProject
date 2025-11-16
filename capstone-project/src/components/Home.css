@@ -1,17 +1,27 @@
+/* FULL-SCREEN HERO SECTION */
+/* MOVE HERO UPWARD */
 .home-section {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 4rem;
-  padding: 4rem 0;
+  gap: 3rem;                   /* slightly smaller gap */
+  
+  height: 100vh;
+  min-height: 650px;
+
+  padding-top: 1.5rem;         /* reduce top spacing */
+  padding-bottom: 2rem;        /* reduce bottom spacing */
+
+  transform: translateY(-30px); /* pull entire section upward */
 }
+
 
 /* LEFT COLUMN */
 .home-left {
   flex: 1;
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 1.5rem;                 /* slightly more spacing for bigger content */
 }
 
 /* RIGHT COLUMN */
@@ -21,53 +31,62 @@
   justify-content: center;
 }
 
+/* IMAGE — 25–30% larger */
 .home-image {
-  width: 100%;
-  max-width: 500px;
-  border-radius: 10px;
-  position: relative; /* make it movable */
+  width: 115%;                /* increase size */
+  max-width: 650px;           /* increased max */
+  border-radius: 16px;
+  position: relative;
   animation: slideIn 0.8s ease-out forwards;
 }
 
-/* Keyframes define how it moves */
+/* SLIDE-IN ANIMATION */
 @keyframes slideIn {
   0% {
-    transform: translate(200px, -200px); /* start from top-right corner */
-    opacity: 0; /* start invisible */
+    transform: translate(200px, -200px);
+    opacity: 0;
   }
   100% {
-    transform: translate(0, 0); /* final position */
-    opacity: 1; /* fully visible */
+    transform: translate(0, 0);
+    opacity: 1;
   }
 }
 
-/* TEXT STYLING */
+/* TEXT — larger + hero style */
 .home-title {
-  font-size: 3rem;
-  font-weight: bold;
+  font-size: 4rem;             /* increased from 3rem */
+  font-weight: 800;
 }
 
 .home-location {
-  font-size: 1.5rem;
-  color: #555;
+  font-size: 2rem;             /* increased from 1.5rem */
+  font-weight: 600;
+  color: #444;
 }
 
 .home-description {
-  font-size: 1rem;
-  line-height: 1.7;
-  max-width: 450px;
+  font-size: 1.25rem;          /* increased from 1rem */
+  line-height: 1.8;
+  max-width: 550px;            /* allow slightly wider text */
 }
 
-/* BUTTON */
+/* BUTTON — larger + more padding */
 .home-button {
-  width: 50%;
-  padding: 0.8rem 1.4rem;
-  background-color: #f4ce14; /* Lemon yellow */
+  width: 55%;
+  padding: 1.2rem 1.8rem;
+  background-color: #f4ce14;
   border: none;
-  border-radius: 10px;  /* Rounded corners */
+  border-radius: 40px;
   cursor: pointer;
   font-weight: bold;
-  font-size: 1rem;
+  font-size: 1.2rem;           /* increased */
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.home-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 28px rgba(0,0,0,0.22);
 }
 
 /* MOBILE RESPONSIVE */
@@ -75,15 +94,37 @@
   .home-section {
     flex-direction: column;
     text-align: center;
+    height: auto;              /* let content size naturally */
+    padding: 3rem 1rem;
   }
 
-  .home-left, 
+  .home-left,
   .home-right {
-    flex: none;
     width: 100%;
   }
 
+  .home-image {
+    width: 90%;
+    max-width: 400px;
+  }
+
+  .home-title {
+    font-size: 2.5rem;
+  }
+
+  .home-location {
+    font-size: 1.3rem;
+  }
+
   .home-description {
+    font-size: 1rem;
+    max-width: 90%;
     margin: 0 auto;
+  }
+
+  .home-button {
+    width: 70%;
+    font-size: 1rem;
+    padding: 1rem 1.2rem;
   }
 }
