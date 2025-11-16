@@ -25,6 +25,20 @@
   width: 100%;
   max-width: 500px;
   border-radius: 10px;
+  position: relative; /* make it movable */
+  animation: slideIn 0.8s ease-out forwards;
+}
+
+/* Keyframes define how it moves */
+@keyframes slideIn {
+  0% {
+    transform: translate(200px, -200px); /* start from top-right corner */
+    opacity: 0; /* start invisible */
+  }
+  100% {
+    transform: translate(0, 0); /* final position */
+    opacity: 1; /* fully visible */
+  }
 }
 
 /* TEXT STYLING */

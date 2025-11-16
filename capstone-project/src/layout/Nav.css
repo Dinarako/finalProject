@@ -141,10 +141,37 @@
   }
 }
 
-/* ===== Optional Hover State for Desktop ===== */
+
+/* ===== Smooth Underline Hover Effect (Desktop /* ===== Base nav link style ===== */
+.nav-list a {
+  position: relative;
+  text-decoration: none;
+  color: var(--text-color);
+  font-weight: 500; /* keep constant to avoid shifting */
+  transition: color 0.2s ease;
+}
+
+/* Hidden underline (desktop) */
+.nav-list a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0%;
+  height: 2px;
+  background-color: #f4b400;
+  transition: width 0.3s ease;
+}
+
 @media (hover: hover) and (min-width: 768px) {
-  .nav-list a:hover {
-    text-decoration: underline;
-    text-underline-offset: 4px;
+  .nav-list a:hover,
+  .nav-list a:focus {
+    color: #222; /* stronger text color on hover */
+  }
+
+  .nav-list a:hover::after,
+  .nav-list a:focus::after {
+    width: 100%; /* underline slides in smoothly */
   }
 }
+

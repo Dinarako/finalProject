@@ -1,0 +1,102 @@
+.about-section {
+  /* break out of the .container width and go full viewport */
+  position: relative;
+  left: 50%;
+  margin-left: -50vw;
+  width: 100vw;
+
+  min-height: 70vh;             /* 30% less than full height */
+  background-color: #495e57;
+  display: flex;
+  align-items: center;          /* vertical center */
+  justify-content: center;      /* horizontal center */
+  padding: 4rem 1.5rem;
+  box-sizing: border-box;
+}
+
+.about-inner {
+    display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4rem;
+  max-width: 1200px;
+  width: 100%;
+  position: relative; /* allow images to sit above background */
+  z-index: 2;
+}
+
+/* Left column: overlapping images */
+.about-images {
+  position: relative;
+  width: 364px;
+  height: 364px;
+  flex-shrink: 0;              /* 40% bigger than 260px */
+}
+
+.about-image {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 18px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+  z-index: 1; /* baseline */
+}
+
+/* Place images so they overlap by ~50%, both clearly visible */
+.about-image--primary {
+  z-index: 3;
+  transform: translate(-15%, -8%);
+}
+
+.about-image--secondary {
+  z-index: 2; /* ABOVE background, BELOW primary */
+  transform: translate(35%, 15%); /* ~50% overlap */
+}
+
+/* Right column: text */
+/* Add gap between images & right column */
+.about-text {
+  margin-left: 12%; /* ≈40px as a % of container width */
+}
+.about-text h2 {
+  color: #f1c232;              /* heading color */
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.about-text p {
+  color: #ffffff;              /* paragraph color */
+  line-height: 1.6;
+  max-width: 480px;
+}
+
+/* Responsive: stack on smaller screens */
+@media (max-width: 767px) {
+  .about-section {
+    left: 0;
+    margin-left: 0;
+    width: 100%;               /* on small screens just use normal width */
+  }
+
+  .about-inner {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .about-images {
+    margin-bottom: 2rem;
+  }
+
+  .about-image--primary {
+    transform: translate(0, -10%);
+  }
+
+  .about-image--secondary {
+    transform: translate(0, 10%);
+  }
+
+  .about-text p {
+    margin-inline: auto;
+  }
+}

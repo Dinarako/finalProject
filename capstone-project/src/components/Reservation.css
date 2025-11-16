@@ -1,0 +1,99 @@
+/* Reservation.css */
+
+.reservation-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: calc(100vh - 140px);
+  background-color: #f2f5f4;
+}
+
+.reservation-container {
+  background-color: #bbcec1;
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 500px;
+}
+
+/* 3) Increase h1 size by 20% */
+.reservation-container h1 {
+  text-align: center;
+  margin-bottom: 30px;
+  font-family: "Arial", sans-serif;
+  font-size: 2rem; /* increased from ~1.6rem → 20% larger */
+}
+
+/* FORM STYLE */
+.reservation-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  font-family: "Arial", sans-serif;
+  background-color: #bbcec1; /* form bg color */
+  padding: 25px;
+  border-radius: 12px;
+}
+
+/* Inputs layout */
+.name-row {
+  display: flex;
+  gap: 40px;
+}
+
+/* Inputs (name row + other fields) */
+.name-row input,
+.form-group input,
+.form-group select {
+  padding: 12px;
+  font-size: 16px;
+  border-radius: 30px; /* rounded inputs */
+  border: 1px solid #aaa; /* grey border */
+  margin-top: 0; /* keep aligned with label */
+}
+
+/* Form group layout - label and input on the SAME row with 30px gap */
+.form-group {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+}
+
+.form-group label {
+  display: flex;
+  align-items: center;
+  gap: 30px;            /* spacing between text + input */
+  white-space: nowrap;  /* keeps text on one line */
+  width: 100%;
+}
+
+/* Make the inputs stretch full width */
+.form-group input,
+.form-group select {
+  flex: 1;              /* <<< THIS makes input take full available space */
+  padding: 12px;
+  font-size: 16px;
+  border-radius: 30px;
+  border: 1px solid #aaa;
+}
+
+/* 2) Change button text color to black + semi-bold */
+.reservation-button {
+  background-color: #f4b400;
+  color: black; /* text color black */
+  font-weight: 600; /* semi-bold */
+  margin-top: 30px;
+  padding: 12px;
+  font-size: 16px;
+  font-family: "Arial", sans-serif;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.reservation-button:hover {
+  background-color: #e0a800;
+}

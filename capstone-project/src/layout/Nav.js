@@ -1,15 +1,19 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import "./Nav.css"; // keep your existing stylesheet
 
 function Nav() {
   const [open, setOpen] = useState(false);
 
+  // helper: close mobile menu when a link is clicked
+  const handleNavClick = () => setOpen(false);
+
   return (
     <header className="site-header" role="banner">
       <div className="header-inner container">
 
-        {/* Logo (kept exactly the same) */}
-        <a href="/" className="brand" aria-label="Little Lemon — Home">
+        {/* Logo */}
+        <Link to="/" className="brand" aria-label="Little Lemon — Home" onClick={handleNavClick}>
           <img
             src="/Logo.svg"
             alt="Little Lemon logo"
@@ -18,9 +22,9 @@ function Nav() {
             height="auto"
           />
           <span className="sr-only">Little Lemon</span>
-        </a>
+        </Link>
 
-        {/* Navigation (kept exactly as in your original Nav.js) */}
+        {/* Navigation */}
         <nav className="primary-nav" aria-label="Primary">
 
           {/* Mobile toggle button */}
@@ -39,12 +43,29 @@ function Nav() {
             id="primary-menu"
             className={`nav-list ${open ? "nav-list--open" : ""}`}
           >
-            <li><a href="#home" aria-current="page">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#specials">Specials</a></li>
-            <li><a href="testimonials">Testimonials</a></li>
-            <li><a href="/order">Order Online</a></li>
-            <li><a href="/contact">Login</a></li>
+            {/* HOME -> route "/" which renders Main -> Home.js */}
+            <li>
+              <Link to="/" onClick={handleNavClick}>
+                Home
+              </Link>
+            </li>
+
+            {/* These still scroll to sections on the main page (if you have ids set) */}
+            <li><a href="#about" onClick={handleNavClick}>About</a></li>
+            <li><a href="#specials" onClick={handleNavClick}>Specials</a></li>
+            <li><a href="#testimonials" onClick={handleNavClick}>Testimonials</a></li>
+
+            {/* Example route links if you add those pages later */}
+            <li>
+              <Link to="/order" onClick={handleNavClick}>
+                Order Online
+              </Link>
+            </li>
+            <li>
+              <Link to="/contact" onClick={handleNavClick}>
+                Login
+              </Link>
+            </li>
           </ul>
 
         </nav>
