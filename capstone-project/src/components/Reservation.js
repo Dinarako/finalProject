@@ -43,7 +43,7 @@ const Reservation = () => {
           {/* Date */}
           <div className="form-group">
             <label>
-              Choose Date
+              Choose Date <span className="required">*</span>
               <input
                 type="date"
                 value={date}
@@ -56,7 +56,7 @@ const Reservation = () => {
           {/* Time */}
           <div className="form-group">
             <label>
-              Choose Time
+              Choose Time <span className="required">*</span>
               <select value={time} onChange={(e) => setTime(e.target.value)} required>
                 <option value="">Select time</option>
                 <option value="14:00">14:00</option>
@@ -71,11 +71,11 @@ const Reservation = () => {
           {/* Number of Guests */}
           <div className="form-group">
             <label>
-              Number of Guests
+              Number of Guests <span className="required">*</span>
               <input
                 type="number"
                 min="1"
-                max="20"
+                max="12"
                 value={guests}
                 onChange={(e) => setGuests(e.target.value)}
                 placeholder="1"

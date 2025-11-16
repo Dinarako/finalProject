@@ -41,6 +41,11 @@
   display: flex;
   gap: 40px;
 }
+.required {
+  color: red;
+  margin-left: 4px;
+}
+
 
 /* Inputs (name row + other fields) */
 .name-row input,
